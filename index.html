@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./gameapi.js" defer ></script>
-     <title>GAMES API</title>
+    <title>Pesquisa de Jogos</title>
+    <script src="gameapi.js" defer></script>
 </head>
 <body>
-        <input id="raca" type="text">
-        <button id="pesquisar">Pesquisar</button>
-        <div id="galeria"></div>
+
+    <h1>Pesquisar Jogos Por Categoria</h1>
+
+    <label for="categoria">Escolha uma categoria:</label>
+    <input type="text" id="categoria" placeholder="Ex: tiro, mmo, estratégia">
+    <button id="pesquisar">Pesquisar</button>
+
+    <div id="galeria"></div>
+
 </body>
 </html>
