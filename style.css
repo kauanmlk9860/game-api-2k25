@@ -1,0 +1,96 @@
+/**********************************************************************************************************************************************************************************
+ * Objetivo: Utilizar o css para fazer os estilos, mudar fontes e cores 
+ * Data: 20/02/2025
+ * Autor: Kauan Rodrigues 
+ * Versões: 1.0
+ ***********************************************************************************************************************************************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    background: linear-gradient(135deg, #1e1e2e, #3a0ca3);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+input, button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 10px;
+}
+
+input {
+    width: 300px;
+    background: #2a2a3b;
+    color: white;
+}
+
+button {
+    background: #6a00f4;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #9d4edd;
+}
+
+
+#galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.jogo {
+    background: #2a2a3b;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.jogo:hover {
+    transform: scale(1.05);
+}
+
+
+.jogo img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+.jogo h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+
+.jogo p {
+    font-size: 0.9rem;
+    color: #bbb;
+}

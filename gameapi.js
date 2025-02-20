@@ -1,6 +1,13 @@
-'use strict';
+/**********************************************************************************************************************************************************************************
+ * Objetivo: Utilizar o JavaScript para adquirir todas as informações da API que estou consumindo 
+ * Data: 20/02/2025
+ * Autor: Kauan Rodrigues 
+ * Versões: 1.0
+ ***********************************************************************************************************************************************************************************/
 
-// Mapeamento de categorias em português para inglês
+
+'use strict'
+
 const categoriasTraduzidas = {
     'tiro': 'shooter',
     'mmorpg': 'mmorpg',
@@ -26,55 +33,55 @@ const categoriasTraduzidas = {
 
 async function pesquisarJogos(categoria) {
     // Traduz a categoria para inglês
-    const categoriaIngles = categoriasTraduzidas[categoria.toLowerCase()] || categoria.toLowerCase();
-    const url = `https://www.freetogame.com/api/games?category=${categoriaIngles}`;
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`; // Usando outro proxy CORS
+    const categoriaIngles = categoriasTraduzidas[categoria.toLowerCase()] || categoria.toLowerCase()
+    const url = `https://www.freetogame.com/api/games?category=${categoriaIngles}`
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
     try {
-        const response = await fetch(proxyUrl);
+        const response = await fetch(proxyUrl)
         if (!response.ok) {
-            throw new Error('Erro ao carregar os jogos');
+            throw new Error('Erro ao carregar os jogos')
         }
-        const data = await response.json();
+        const data = await response.json()
         return data;
     } catch (error) {
-        console.error('Erro:', error);
+        console.error('Erro:', error)
         return [];
     }
 }
 
 function criarCardJogo(jogo) {
-    const galeria = document.getElementById('galeria');
-    const card = document.createElement('div');
-    card.className = 'jogo';
+    const galeria = document.getElementById('galeria')
+    const card = document.createElement('div')
+    card.className = 'jogo'
 
-    const imagem = document.createElement('img');
-    imagem.src = jogo.thumbnail;
-    imagem.alt = jogo.title;
+    const imagem = document.createElement('img')
+    imagem.src = jogo.thumbnail
+    imagem.alt = jogo.title
 
-    const titulo = document.createElement('h2');
-    titulo.textContent = jogo.title;
+    const titulo = document.createElement('h2')
+    titulo.textContent = jogo.title
 
-    const descricao = document.createElement('p');
-    descricao.textContent = jogo.short_description;
+    const descricao = document.createElement('p')
+    descricao.textContent = jogo.short_description
 
-    card.appendChild(imagem);
-    card.appendChild(titulo);
-    card.appendChild(descricao);
+    card.appendChild(imagem)
+    card.appendChild(titulo)
+    card.appendChild(descricao)
 
-    galeria.appendChild(card);
+    galeria.appendChild(card)
 }
 
 async function preencherJogos() {
-    const galeria = document.getElementById('galeria');
-    const categoria = document.getElementById('categoria').value;
-    const jogos = await pesquisarJogos(categoria);
+    const galeria = document.getElementById('galeria')
+    const categoria = document.getElementById('categoria').value
+    const jogos = await pesquisarJogos(categoria)
 
-    galeria.replaceChildren('');
+    galeria.replaceChildren('')
     if (jogos.length === 0) {
-        galeria.textContent = 'Nenhum jogo encontrado para esta categoria.';
+        galeria.textContent = 'Nenhum jogo encontrado para esta categoria.'
     } else {
-        jogos.forEach(criarCardJogo);
+        jogos.forEach(criarCardJogo)
     }
 }
 
-document.getElementById('pesquisar').addEventListener('click', preencherJogos);
+document.getElementById('pesquisar').addEventListener('click', preencherJogos)
